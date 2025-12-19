@@ -29,7 +29,8 @@ function getHumanChoice() {
 }
 
 
-function playRound(humanChoice, computerChoice) {
+function playGame() {
+    function playRound(humanChoice, computerChoice) {
     if (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") {
         console.log("You win! Rock beats scissors") 
         humanScore++
@@ -54,3 +55,12 @@ function playRound(humanChoice, computerChoice) {
         computerScore++
     }
 }
+  let humanSelection = getHumanChoice();
+  let computerSelection = getComputerChoice();
+  for (let i = 1; i < 6; i++) {
+    playRound(humanSelection, computerSelection);
+    humanSelection = getHumanChoice();
+    computerSelection= getComputerChoice();
+  }
+}
+playGame();
