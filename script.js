@@ -55,8 +55,6 @@ function playGame() {
         computerScore++
     }
 }
-  let humanSelection = getHumanChoice();
-  let computerSelection = getComputerChoice();
   for (let i = 1; i < 6; i++) {
     playRound(humanSelection, computerSelection);
     humanSelection = getHumanChoice();
