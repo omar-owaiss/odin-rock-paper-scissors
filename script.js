@@ -56,9 +56,9 @@ function playGame() {
     }
 }
   for (let i = 1; i < 6; i++) {
-    playRound(humanSelection, computerSelection);
     humanSelection = getHumanChoice();
     computerSelection= getComputerChoice();
+    playRound(humanSelection, computerSelection);
   }
 }
 playGame();
