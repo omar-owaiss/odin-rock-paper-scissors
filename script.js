@@ -7,6 +7,8 @@ let winnerMessage = document.querySelector(".winner")
 let display = document.querySelector(".display")
 const btnReset = document.createElement("button")
 
+roundMessage.textContent = "Pick rock, paper or scissors. First to 5 wins!"
+
 
 function getComputerChoice() {
     let computerChoice = Math.random()
@@ -25,8 +27,9 @@ function getComputerChoice() {
 
 function playRound(humanChoice) {
     computerChoice = getComputerChoice()
+
     if (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") {
-        scoreMessage.textContent= "You win! Rock beats scissors" 
+        roundMessage.textContent= "You win! Rock beats scissors" 
         humanScore++
     }
 
@@ -56,7 +59,7 @@ function playRound(humanChoice) {
         btnReset.addEventListener("click", () => {
             computerScore = 0
             humanScore = 0
-            roundMessage.textContent = ""
+            roundMessage.textContent = "Pick rock, paper or scissors. First to 5 wins!"
             totalScore.textContent = ""
             winnerMessage.textContent = ""
             display.removeChild(btnReset)
@@ -69,7 +72,7 @@ function playRound(humanChoice) {
         btnReset.addEventListener("click", () => {
             computerScore = 0
             humanScore = 0
-            roundMessage.textContent = ""
+            roundMessage.textContent = "Pick rock, paper or scissors. First to 5 wins!"
             totalScore.textContent = ""
             winnerMessage.textContent = ""
             display.removeChild(btnReset)
