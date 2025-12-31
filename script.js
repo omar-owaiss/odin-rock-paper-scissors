@@ -22,19 +22,6 @@ function getComputerChoice() {
 }
 
 
-// function getHumanChoice() {
-//     let humanChoice = prompt("pick rock paper or scissors! ")
-//     if (humanChoice === "rock") {
-//         return "rock"
-//     }
-//     else if (humanChoice === "paper") {
-//         return "paper"
-//     }
-//     else  {
-//         return "scissors"
-//     }
-// }
-
 
 function playRound(humanChoice) {
     computerChoice = getComputerChoice()
