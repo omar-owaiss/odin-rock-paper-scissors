@@ -1,7 +1,12 @@
 let humanScore = 0
 let computerScore = 0
 
-let scoreMessage = document.querySelector(".message")
+let roundMessage = document.querySelector(".message")
+let totalScore = document.querySelector(".score")
+let winnerMessage = document.querySelector(".winner")
+let display = document.querySelector(".display")
+const btnReset = document.createElement("button")
+
 
 function getComputerChoice() {
     let computerChoice = Math.random()
@@ -39,23 +44,52 @@ function playRound(humanChoice) {
     }
 
     else if (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") {
-        scoreMessage.textContent= "You win! Paper beats Rock"
+        roundMessage.textContent= "You win! Paper beats Rock"
         humanScore++
     }
 
     else if (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper") {
-        scoreMessage.textContent= "You win! Scissors beats Paper"
+        roundMessage.textContent= "You win! Scissors beats Paper"
         humanScore++
     }
 
     else if (humanChoice.toLowerCase() === computerChoice) {
-        scoreMessage.textContent= "It's a draw! Try again"
+        roundMessage.textContent= "It's a draw! Try again"
     }
 
     else {
-        scoreMessage.textContent= `You lose! ${computerChoice} beats ${humanChoice}`
+        roundMessage.textContent= `You lose! ${computerChoice} beats ${humanChoice}`
         computerScore++
     }
+    totalScore.textContent= `Your score: ${humanScore} \n Computer score: ${computerScore}`
+    if (humanScore === 5) {
+        winnerMessage.textContent = "Congratulations! You won!"
+        btnReset.textContent = "Reset"
+        display.appendChild(btnReset)
+        btnReset.addEventListener("click", () => {
+            computerScore = 0
+            humanScore = 0
+            roundMessage.textContent = ""
+            totalScore.textContent = ""
+            winnerMessage.textContent = ""
+            display.removeChild(btnReset)
+        })
+    }
+    else if (computerScore === 5) {
+        winnerMessage.textContent = "Bummer! You lost."
+        btnReset.textContent = "Reset"
+        display.appendChild(btnReset)
+        btnReset.addEventListener("click", () => {
+            computerScore = 0
+            humanScore = 0
+            roundMessage.textContent = ""
+            totalScore.textContent = ""
+            winnerMessage.textContent = ""
+            display.removeChild(btnReset)
+        })
+    }
+    
+
 }
 
 const btnRock = document.querySelector(".rock")
