@@ -29,8 +29,7 @@ function getHumanChoice() {
 }
 
 
-function playGame() {
-    function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice, computerChoice) {
     if (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") {
         console.log("You win! Rock beats scissors") 
         humanScore++
@@ -55,21 +54,5 @@ function playGame() {
         computerScore++
     }
 }
-  for (let i = 1; i < 6; i++) {
-    humanSelection = getHumanChoice();
-    computerSelection= getComputerChoice();
-    playRound(humanSelection, computerSelection);
-  }
-  if (humanScore > computerScore) {
-    console.log(`Congratulations! You won ${humanScore} to ${computerScore}`)
-  }
-  
-  else if (humanScore < computerScore) {
-    console.log(`Bummer! You lost ${computerScore} to ${humanScore}. Better luck next time! ;)`)
-  }
+playRound(getHumanChoice(), getComputerChoice());
 
-  else {
-    console.log(`It's a Draw! ${humanScore} to ${computerScore}`)
-  }
-}
-playGame();
