@@ -15,21 +15,22 @@ function getComputerChoice() {
 }
 
 
-function getHumanChoice() {
-    let humanChoice = prompt("pick rock paper or scissors! ")
-    if (humanChoice === "rock") {
-        return "rock"
-    }
-    else if (humanChoice === "paper") {
-        return "paper"
-    }
-    else  {
-        return "scissors"
-    }
-}
+// function getHumanChoice() {
+//     let humanChoice = prompt("pick rock paper or scissors! ")
+//     if (humanChoice === "rock") {
+//         return "rock"
+//     }
+//     else if (humanChoice === "paper") {
+//         return "paper"
+//     }
+//     else  {
+//         return "scissors"
+//     }
+// }
 
 
-function playRound(humanChoice, computerChoice) {
+function playRound(humanChoice) {
+    computerChoice = getComputerChoice()
     if (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") {
         console.log("You win! Rock beats scissors") 
         humanScore++
@@ -54,5 +55,11 @@ function playRound(humanChoice, computerChoice) {
         computerScore++
     }
 }
-playRound(getHumanChoice(), getComputerChoice());
 
+const btnRock = document.querySelector(".rock")
+const btnPaper = document.querySelector(".paper")
+const btnScissors = document.querySelector(".scissors")
+
+btnRock.addEventListener("click", () => {playRound("rock")})
+btnPaper.addEventListener("click", () => {playRound ("paper")})
+btnScissors.addEventListener("click", () => {playRound("scissors")})
