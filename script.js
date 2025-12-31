@@ -1,6 +1,8 @@
 let humanScore = 0
 let computerScore = 0
 
+let scoreMessage = document.querySelector(".message")
+
 function getComputerChoice() {
     let computerChoice = Math.random()
     if (computerChoice <= 0.3) {
@@ -32,26 +34,26 @@ function getComputerChoice() {
 function playRound(humanChoice) {
     computerChoice = getComputerChoice()
     if (humanChoice.toLowerCase() === "rock" && computerChoice === "scissors") {
-        console.log("You win! Rock beats scissors") 
+        scoreMessage.textContent= "You win! Rock beats scissors" 
         humanScore++
     }
 
     else if (humanChoice.toLowerCase() === "paper" && computerChoice === "rock") {
-        console.log("You win! Paper beats Rock") 
+        scoreMessage.textContent= "You win! Paper beats Rock"
         humanScore++
     }
 
     else if (humanChoice.toLowerCase() === "scissors" && computerChoice === "paper") {
-        console.log("You win! Scissors beats Paper") 
+        scoreMessage.textContent= "You win! Scissors beats Paper"
         humanScore++
     }
 
     else if (humanChoice.toLowerCase() === computerChoice) {
-        console.log("It's a draw! Try again")
+        scoreMessage.textContent= "It's a draw! Try again"
     }
 
     else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`)
+        scoreMessage.textContent= `You lose! ${computerChoice} beats ${humanChoice}`
         computerScore++
     }
 }
